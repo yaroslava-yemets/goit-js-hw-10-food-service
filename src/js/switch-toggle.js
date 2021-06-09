@@ -3,7 +3,6 @@ export default function (evt) {
         LIGHT: 'light-theme',
         DARK: 'dark-theme',
     };
-    evt.preventDefault();
     const bodyRef = document.querySelector('body');
 
     if (evt.target.checked) {
