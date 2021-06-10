@@ -1,3 +1,4 @@
+import './sass/main.scss'
 import cards from './menu.json';
 import menuCardsTpl from './templates/menuCardsTpl.hbs';
 import onSwitchTogglle from './js/switch-toggle.js';
