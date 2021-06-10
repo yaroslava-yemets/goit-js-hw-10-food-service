@@ -1,28 +1,24 @@
 import './sass/main.scss';
 import cards from './menu.json';
 import menuCardsTpl from './templates/menuCardsTpl.hbs';
-import onSwitchTogglle from './js/switch-toggle.js';
+import {onChangeCheckbox} from './js/checkbox.js';
 
 const menuCards = menuCardsTpl(cards);
-const refs = {
-    switchToggle: document.querySelector('#theme-switch-toggle'),
-    menuRender: document.querySelector('.js-menu'),
-};
+const menuRender = document.querySelector('.js-menu');
+const checkboxRef = document.querySelector('#theme-switch-toggle');
 
 savedThemeLoad ();
 
-refs.menuRender.insertAdjacentHTML('afterbegin', menuCards);
-refs.switchToggle.addEventListener('change', onSwitchTogglle);
-
+menuRender.insertAdjacentHTML('afterbegin', menuCards);
+checkboxRef.addEventListener('change', onChangeCheckbox);
 
 function savedThemeLoad () {
     const savedTheme = localStorage.getItem('Theme');
-    const savedCheckbox = localStorage.getItem('checked');
+    const bodyRef = document.querySelector('body');
     if (savedTheme) {
-        document.querySelector('body').classList.add(savedTheme);
+        bodyRef.classList.add(savedTheme);
         if (savedTheme === 'dark-theme') {
-            refs.switchToggle.checked = true;
+            checkboxRef.checked = true;
         };
     };
-};
-
+}

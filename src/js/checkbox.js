@@ -1,10 +1,10 @@
-export default function (evt) {
-    const Theme = {
-        LIGHT: 'light-theme',
-        DARK: 'dark-theme',
-    };
-    const bodyRef = document.querySelector('body');
+const Theme = {
+    LIGHT: 'light-theme',
+    DARK: 'dark-theme',
+};
+const bodyRef = document.querySelector('body');
 
+function onChangeCheckbox (evt) {
     if (evt.target.checked) {
         bodyRef.classList.add(Theme.DARK);
         bodyRef.classList.remove(Theme.LIGHT);
@@ -17,4 +17,6 @@ export default function (evt) {
         
         localStorage.setItem('Theme', Theme.LIGHT);
     };
-};
+}
+
+export {onChangeCheckbox};
